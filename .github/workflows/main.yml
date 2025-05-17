@@ -1,14 +1,21 @@
-            - name: Deploy to AWS S3
-  # You may pin to the exact commit or the version.
-  # uses: nick-y-ito/gha-s3-deploy@287dafecede277757bf90d45112c2e4c21f28012
-  uses: nick-y-ito/gha-s3-deploy@v2.0.6
-  with:
-    # The ARN of the AWS IAM role to assume for deploying to S3
-    role-to-assume: 
-    # The name of the S3 bucket where your website will be hosted
-    bucket: 
-    # The region of the S3 bucket
-    region: # optional, default is us-east-1
-    # Absolute path of the folder containing the deployable files
-    folder: # optional, default is .
-          
+name: Upload Website
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-west-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'public'      # optional: defaults to entire repository
