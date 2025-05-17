@@ -1,0 +1,14 @@
+            - name: Deploy to AWS S3
+  # You may pin to the exact commit or the version.
+  # uses: nick-y-ito/gha-s3-deploy@287dafecede277757bf90d45112c2e4c21f28012
+  uses: nick-y-ito/gha-s3-deploy@v2.0.6
+  with:
+    # The ARN of the AWS IAM role to assume for deploying to S3
+    role-to-assume: 
+    # The name of the S3 bucket where your website will be hosted
+    bucket: 
+    # The region of the S3 bucket
+    region: # optional, default is us-east-1
+    # Absolute path of the folder containing the deployable files
+    folder: # optional, default is .
+          
