@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -6,48 +5,36 @@
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="icon" type="image/png" href="assets/images/3dviewer_net_favicon.ico">
-    <!--<link rel="canonical" href="https://3dviewer.net">  -->
+    <link rel="canonical" href="https://3dviewer.net">
 
     <title>Online 3D Viewer</title>
-    <script type="text/javascript" src="o3dv.min.js"></script>
-    <!--<meta name="description" content="A free and open source web solution to visualize and explore 3D models right in your browser. Supported file formats: 3dm, 3ds, 3mf, amf, bim, brep, dae, fbx, fcstd, gltf, ifc, iges, step, stl, obj, off, ply, wrl.">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Online 3D Viewer">
-    <meta property="og:description" content="A free and open source web solution to visualize and explore 3D models right in your browser. Supported file formats: 3dm, 3ds, 3mf, amf, bim, brep, dae, fbx, fcstd, gltf, ifc, iges, step, stl, obj, off, ply, wrl.">
-    <meta property="og:image" content="https://3dviewer.net/assets/images/3dviewer_net_logo_social.png">
-    <meta property="og:site_name" content="3dviewer.net">
-  <meta property="og:url" content="https://3dviewer.net">  -->
 
-    <link rel="stylesheet" type="text/css" href="o3dv/o3dv.website.min.css?v=0.15.0">
-    <script type="text/javascript" src="o3dv/o3dv.website.min.js?v=0.15.0"></script>
+    <!-- meta start -->
+    <!-- meta end -->
 
+    <!-- website start -->
+    <link rel="stylesheet" type="text/css" href="../build/website_dev/o3dv.website.min.css">
+    <script type="text/javascript" src="../build/website_dev/o3dv.website.min.js"></script>
+    <!-- website end -->
+    <!-- plugins start -->
+    <!-- plugins end -->
 
-    
+    <!-- website analytics start -->
     <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6ZZ5ZTMBX5');
-      OV.SetWebsiteEventHandler ((eventName, eventLabel, eventParams) => {
-        let params = {
-          event_label : eventLabel
-        };
-        if (eventParams !== undefined && eventParams !== null) {
-            for (let key in eventParams) {
-                if (Object.prototype.hasOwnProperty.call (eventParams, key)) {
-                    params[key] = eventParams[key];
-                }
-            }
-        }
-        gtag ('event', eventName, params);
-      });
+        OV.SetWebsiteEventHandler ((eventName, eventLabel, eventParams) => {
+            console.log ({
+                eventName : eventName,
+                eventLabel : eventLabel,
+                eventParams : eventParams
+            });
+        });
     </script>
-  
+    <!-- website analytics end -->
 
     <script type="text/javascript">
         OV.StartWebsite ();
     </script>
-
+ <script type="text/javascript" src="o3dv.min.js"></script>
 </head>
 
 <body>
@@ -104,7 +91,8 @@
                     <a href="#model=assets/models/extrusion3.wrl">wrl</a>
                 </div>
             </div>
-            
+            <!-- intro footer start -->
+            <!-- intro footer end -->
         </div>
     </div>
 </body>
