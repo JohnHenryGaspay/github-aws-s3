@@ -8,4 +8,12 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
   },
+  senders: {
+    email: {
+      // configure using the email registered and verified in Amazon SES
+      fromEmail: "jhgaspay@gmail.com",
+      fromName: "github-aws-s3",
+      replyTo: "jhgaspay@gmail.com"
+    },
+  },
 });
