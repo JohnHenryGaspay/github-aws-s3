@@ -1,11 +1,12 @@
-import { Loc } from '../engine/core/localization.js';
-import { AddDiv, AddDomElement } from '../engine/viewer/domutils.js';
+import { SetExternalLibLocation } from '../engine/io/externallibs.js';
+//import { AddDiv, AddDomElement } from '../engine/viewer/domutils.js';
 import { Embed } from './embed.js';
 import { Website } from './website.js';
 import { SetEventHandler, HandleEvent } from './eventhandler.js';
 import { PluginType, RegisterPlugin } from './pluginregistry.js';
 import { ButtonDialog, ProgressDialog } from './dialog.js';
 import { ShowMessageDialog } from './dialogs.js';
+import { Loc } from '../engine/core/localization.js';
 
 import * as Engine from '../engine/main.js';
 export { Engine };
@@ -45,20 +46,22 @@ export function RegisterToolbarPlugin (plugin)
     RegisterPlugin (PluginType.Toolbar, plugin);
 }
 
-export function StartWebsite ()
+//export function StartWebsite ()
+export function StartWebsite (externalLibLocation)
 {
     window.addEventListener ('load', () => {
-        if (window.self !== window.top) {
+       /* if (window.self !== window.top) {
             let noEmbeddingDiv = AddDiv (document.body, 'noembed');
             AddDiv (noEmbeddingDiv, null, Loc ('Embedding Online 3D Viewer in an iframe is not supported.'));
-            let link = AddDomElement (noEmbeddingDiv, 'a', null, Loc ('Open Online 3D Viewer'));
+            let link = AddDomElemen
+            t (noEmbeddingDiv, 'a', null, Loc ('Open Online 3D Viewer'));
             link.target = '_blank';
             link.href = window.self.location;
             return;
-        }
+        } */
 
-        document.getElementById ('intro_dragdrop_text').innerHTML = Loc ('Drag and drop 3D models here.');
-        document.getElementById ('intro_formats_title').innerHTML = Loc ('Check an example file:');
+        document.getElementById ('intro_dragdrop_text').innerHTML = Loc ('Ziehe dein 3D-Modell einfach per Drag & Drop hierher.');
+        document.getElementById ('intro_formats_title').innerHTML = Loc ('Beispieldatei ansehen: johng');
 
         let website = new Website ({
             headerDiv : document.getElementById ('header'),
@@ -81,7 +84,7 @@ export function StartWebsite ()
     });
 }
 
-export function StartEmbed ()
+/*export function StartEmbed ()
 {
     window.addEventListener ('load', () => {
         let embed = new Embed ({
@@ -90,4 +93,4 @@ export function StartEmbed ()
         });
         embed.Load ();
     });
-}
+} */
